@@ -31,5 +31,5 @@ export default function ProductList() {
       </div>
     );
   }
-  return <div>ProductList</div>;
+  return <div className="bg-blue-500">ProductList</div>;
 }
