@@ -20,9 +20,9 @@ var lastFetchTime time.Time
 
 func GetGoldPrice() (float64, error) {
 	// Cache for 1 hour 
-	if time.Since(lastFetchTime) < time.Hour && cachedGoldPrice > 0 {
+	/*if time.Since(lastFetchTime) < time.Hour && cachedGoldPrice > 0 {
 		return cachedGoldPrice, nil
-	}
+	}*/
 
 	
 	apiKey := os.Getenv("METAL_PRICE_API_KEY")
@@ -64,7 +64,7 @@ func GetGoldPrice() (float64, error) {
 	}
 
 
-	xauRate, exists := result.Rates["XAU"]
+	xauRate, exists := result.Rates["USDXAU"]
 	if !exists {
 		fmt.Println("XAU rate not found in response")
 		return 0.0, nil
