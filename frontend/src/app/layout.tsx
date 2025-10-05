@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Luxury Engagement Rings",
+  title: "Engagement Rings",
   description: "Discover our collection of handcrafted engagement rings",
 };
 

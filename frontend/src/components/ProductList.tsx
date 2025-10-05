@@ -2,6 +2,7 @@
 import { useProducts } from "@/hooks/useProducts";
 import { FilterOptions } from "@/types/product";
 import React, { useState } from "react";
+import ProductCarousel from "./ProductCarousel";
 
 export default function ProductList() {
   const [filters, setFilters] = useState<FilterOptions>({});
@@ -31,5 +32,21 @@ export default function ProductList() {
       </div>
     );
   }
-  return <div className="bg-blue-500">ProductList</div>;
+  return (
+    <div className="container mx-auto px-4 pt-4">
+      <h1 className="text-[45px] font-medium text-black py-10 text-center">
+        Product List
+      </h1>
+
+      {products.length === 0 ? (
+        <div className="text-center py-12">
+          <p className="text-gray-600 text-lg">
+            No products found matching your criteria.
+          </p>
+        </div>
+      ) : (
+        <ProductCarousel products={products} />
+      )}
+    </div>
+  );
 }
