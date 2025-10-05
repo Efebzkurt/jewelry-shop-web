@@ -34,6 +34,16 @@ go run main.go
 npm run dev
 ```
 
+
+## API Filtrelemesi
+Ürünler maximum ve minimum fiyat, maximum ve minimum popülerite değerlerine göre filtrelenebilir
+Kullanılabilecek değerler: maxPrice, minPrice, maxPopularity, minPopularity
+
+Örnek: Sadece 900 ve 1500 fiyat değeri arasındaki ürünleri göster:
+```
+../api/products?minPrice=900&maxPrice=1500
+```
+
 ## CANLI
 Görünüm: https://jewelry-shop-web-frontend.onrender.com
 
