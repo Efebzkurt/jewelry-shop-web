@@ -4,6 +4,7 @@ import (
 	"backend/handlers"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
@@ -13,21 +14,25 @@ import (
 func main() {
 	godotenv.Load()
 	router := mux.NewRouter()
-
+	allowedOrigin := os.Getenv("FRONTEND_URL")
 	// API routes
 	router.HandleFunc("/api/products", handlers.GetProducts).Methods("GET")
 	router.HandleFunc("/api/products/{id}", handlers.GetProductByID).Methods("GET")
 
-	// CORS 
+	// CORS
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000"},
+		AllowedOrigins:   []string{allowedOrigin},
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
 	})
 
 	handler := c.Handler(router)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
-	log.Println("Server starting on :8080")
-	log.Fatal(http.ListenAndServe(":8080", handler))
+	log.Printf("Server starting on :%s", port)
+	log.Fatal(http.ListenAndServe(":"+port, handler))
 }
