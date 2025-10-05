@@ -2,6 +2,7 @@
 Bir e-ticaret sitesinde kullanılabilecek,mock data ile ürünleri listeleyen bir web uygulaması.
 ## Sayfa Görünümü
 <img height=300 src="https://github.com/user-attachments/assets/4fcb8019-5a44-4773-943f-82b0e701eac8" />
+
 ## Hata Durumunda Görüntülenecek Sayfa
 <img height=300 src="https://github.com/user-attachments/assets/6be60430-1746-4655-8da4-cebef6596460" />
 
