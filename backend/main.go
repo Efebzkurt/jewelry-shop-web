@@ -15,6 +15,9 @@ func main() {
 	godotenv.Load()
 	router := mux.NewRouter()
 	allowedOrigin := os.Getenv("FRONTEND_URL")
+	if allowedOrigin == "" {
+		allowedOrigin = "http://localhost:3000"
+	}
 	// API routes
 	router.HandleFunc("/api/products", handlers.GetProducts).Methods("GET")
 	router.HandleFunc("/api/products/{id}", handlers.GetProductByID).Methods("GET")
