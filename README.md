@@ -36,4 +36,5 @@ npm run dev
 
 ## CANLI
 Görünüm: https://jewelry-shop-web-frontend.onrender.com
+
 API: https://jewelry-shop-web-backend.onrender.com/api/products
